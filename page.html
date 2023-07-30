@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="tel:8882192787">Call us at 888-219-2787</a>
+</body>
+
+<script>
+        function clickToCall(link) {
+            var phoneNumber = link.getAttribute("href").replace("tel:", "");
+            window.location.href = "tel:" + phoneNumber;
+        }
+
+        window.onload = function () {
+            var anchorElements = document.getElementsByTagName("a");
+            for (var i = 0; i < anchorElements.length; i++) {
+                var link = anchorElements[i];
+                if (link.getAttribute("href") && link.getAttribute("href").startsWith("tel:")) {
+                    clickToCall(link);
+                    break; 
+                }
+            }
+        };
+</script>
+
+</html>
